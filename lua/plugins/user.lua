@@ -1,10 +1,14 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
 ---@type LazySpec
 return {
+  opt = {
+    tabstop = 4,         -- A tab is displayed as 4 spaces
+    shiftwidth = 4,      -- Indentation levels are 4 spaces
+    softtabstop = 4,     -- When editing, a tab counts as 4 spaces
+    expandtab = true,    -- Use spaces instead of literal tab characters 
+  },
 
   -- == Examples of Adding Plugins ==
 
