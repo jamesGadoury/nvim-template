@@ -18,7 +18,18 @@ end
 require "lazy_setup"
 require "polish"
 
--- Toggle diagnostics on/off
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    -- Check if the buffer's shiftwidth is not already set to 4
+    if vim.bo.shiftwidth ~= 4 then
+      vim.bo.tabstop = 4
+      vim.bo.shiftwidth = 4
+      vim.bo.softtabstop = 4
+      vim.bo.expandtab = true
+    end
+  end,
+})
+
 local diagnostics_active = true
 
 function ToggleDiagnostics()
