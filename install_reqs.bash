@@ -7,5 +7,6 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/downl
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
 nvim --headless +"LspInstall clangd" +qall
-nvim --headless +"LspInstall pyright" +qall
+# TODO: Figure out why this doesn't seem to work
+# nvim --headless +"LspInstall pyright" +qall
 nvim --headless +"MasonInstall bash-language-server" +qall
