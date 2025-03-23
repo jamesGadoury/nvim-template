@@ -41,6 +41,19 @@ function ToggleDiagnostics()
   end
 end
 
-vim.api.nvim_create_user_command("ToggleDiagnostics", function()
-  ToggleDiagnostics()
-end, {})
+vim.api.nvim_create_user_command("ToggleDiagnostics", function() ToggleDiagnostics() end, {})
+
+require("toggleterm").setup {
+  open_mapping = [[<leader>tt]],
+  insert_mappings = false, -- Whether to enable mappings in insert mode
+  terminal_mappings = false, -- Whether to enable mappings in terminal mode
+  direction = "float", -- Set to "horizontal", "vertical", or "tab" as needed
+  size = 20, -- Size of the terminal window
+  shade_filetypes = {},
+  autochdir = true, -- Terminal will change directory when Neovim does
+  float_opts = {
+    border = "curved",
+    width = 100,
+    height = 30,
+  },
+}
