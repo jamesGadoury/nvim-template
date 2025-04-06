@@ -37,7 +37,7 @@ function ToggleDiagnostics()
   if diagnostics_active then
     vim.diagnostic.enable()
   else
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
   end
 end
 
@@ -57,3 +57,7 @@ require("toggleterm").setup {
     height = 30,
   },
 }
+
+-- TODO: figure out how to make this only work on python--
+-- OR figure out how to make it add the ignore syntax for linter / formatter comment for each type (ex. cpp and python) --
+vim.keymap.set("n", "<leader>ti", "A # type: ignore<Esc>", { desc = "Add type ignore" })
