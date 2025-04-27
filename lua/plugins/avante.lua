@@ -1,3 +1,6 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- NOTE: I'm commenting this out temporarily from my mainline config until I find
+-- the right ollama model to make this worth it.
 return {
   "yetone/avante.nvim",
   cond = function()
@@ -14,7 +17,7 @@ return {
   opts = {
     provider = "ollama", -- or "deepseek", "claude", etc.
     ollama = {
-      model = "deepseek-coder:33b", -- or your preferred model
+      model = "codegemma:7b", -- or your preferred model
       timeout = 30000,
       temperature = 0,
       max_tokens = 4096,
