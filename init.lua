@@ -61,3 +61,9 @@ require("toggleterm").setup {
 -- TODO: figure out how to make this only work on python--
 -- OR figure out how to make it add the ignore syntax for linter / formatter comment for each type (ex. cpp and python) --
 vim.keymap.set("n", "<leader>ti", "A # type: ignore<Esc>", { desc = "Add type ignore" })
+
+--NOTE: make vim always paste from clipboard register--
+vim.o.clipboard = "unnamedplus"
+vim.keymap.set({ "n", "v" }, "p", '"+p')
+vim.keymap.set({ "n", "v" }, "P", '"+P')
+vim.keymap.set("x", "p", '"_dP', { noremap = true })
