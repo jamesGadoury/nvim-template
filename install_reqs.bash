@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # NOTE: python3-venv is required for based-pyright, black, and isort plugins
 
@@ -9,13 +10,7 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/downl
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
 
-# Install LSP servers first (they typically take longer)
-echo "Installing clangd (this may take a minute)..."
-nvim --headless -c "LspInstall clangd" -c "sleep 60" -c "qall"
-
-echo "Installing pyright (this may take a minute)..."
-nvim --headless -c "LspInstall pyright" -c "sleep 60" -c "qall"
-
-# Install additional tools with Mason
-echo "Installing bash-language-server, black, and isort..."
-nvim --headless -c "MasonInstall bash-language-server black isort" -c "sleep 60" -c "qall"
+echo "Installing clangd, pyright, bash-language-server, black, isort (sync)…"
+nvim --headless +'MasonUpdate' \
+                +'MasonInstallSync clangd pyright bash-language-server black isort' \
+                +qa
